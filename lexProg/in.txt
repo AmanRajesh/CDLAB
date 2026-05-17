@@ -1,0 +1,17 @@
+#include<stdio.h>
+
+// single comment
+
+int main()
+{
+    int a = 10;
+
+    /* multiline
+       comment */
+
+    printf("%d",a);
+
+    // another comment
+
+    return 0;
+}
