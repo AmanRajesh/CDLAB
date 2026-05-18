@@ -4,6 +4,8 @@
     int yyerror(char *s);
     int yylex();
     int cnt=0;
+    int depth=0;
+    int maxdepth;
     
 %}
 
@@ -23,10 +25,15 @@ BS : BS B
    ;
 B : I | E ';' | '{' BS '}'
   ;
-I : FOR A B
+I : FOR A 
    {
     cnt++;
-    
+    depth++;
+    if(depth>maxdepth) maxdepth=depth;
+   }
+   B 
+   {
+    depth--;
    }
    ;
 A : '(' E ';' E ';' E ')'
@@ -47,6 +54,7 @@ int main()
     printf("Enter the code Snippet\n");
     yyparse();
     printf("The number of FOR's is %d\n",cnt);
+    printf("The maximum nesting is %d\n",maxdepth);
    
     return 0;
 }

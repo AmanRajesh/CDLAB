@@ -138,12 +138,13 @@ void targetCode()
         printf("%s\tR3, R1, R2\n",instr);
         printf("STORE\t %s, R3\n",code[i].res);
     }
+    printf("Quadruples\n");
     for(int i=0;i<=idx;i++)
     {
         printf("%d\t: %s\t %s\t %s\t %c\n",i,code[i].res,code[i].op1,code[i].op2,code[i].op);
     }
-    
-	for(int i = 0; i <= idx; i++) {
+    printf("Three Address Code\n");
+	for(int i = 0; i <=idx; i++) {
 		printf("%s = %s %c %s\n", code[i].res, code[i].op1, code[i].op, code[i].op2);
 	}
 }
